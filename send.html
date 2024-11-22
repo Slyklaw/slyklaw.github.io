@@ -77,7 +77,10 @@
                 function initialize() {
                     // Create own peer object with connection to shared PeerJS server
                     peer = new Peer(null, {
-                        debug: 2
+                        debug: 2,
+                        config: {
+                            'iceServers': [{ urls: 'stun:freestun.net:3478' }, { urls: 'turn:freestun.net:3478', username: 'free', credential: 'free' }]
+                        }
                     });
 
                     peer.on('open', function (id) {
